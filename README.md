@@ -1,4 +1,4 @@
-# app_test
+# bear_toys
 
 ## Project setup
 ```
@@ -12,7 +12,7 @@ npm run serve
 
 ### Compiles and minifies for production
 ```
-npm run build
+npm run prod
 ```
 
 ### Lints and fixes files
