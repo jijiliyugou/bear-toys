@@ -1,0 +1,60 @@
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video {
+	margin:0;
+	padding:0;
+}
+html,body,#app{
+	padding: 0px;
+	margin: 0px;
+	height: 100%;
+	font-size: 16px;
+	.el-container{
+		min-height: calc(100%);
+	}
+}
+#app {
+	overflow: auto;
+}
+h1,h2,h3,h4,h5,h6,em,i {
+	font-weight:100;
+	font-style:normal;
+}
+ul,ol,li {
+	list-style-type:none;
+}
+a {
+	color:#666;
+	text-decoration:none;
+	outline:0;
+}
+a:hover {
+	text-decoration:none;
+}
+.el-select-dropdown__wrap{
+	max-height: 370px !important;
+}
+.menuItems{
+	.el-menu{
+		min-width: 120px;
+		max-height: 300px;
+		overflow: auto;
+		-ms-overflow-style: none;
+		&::-webkit-scrollbar {
+		  width: 0;
+		  display: none;
+		}
+	}
+}
+.hide .el-upload--picture-card {
+    display: none;
+}
+// .el-cascader-menu {
+// 	min-width:120px !important;
+// 	.el-cascader-menu__wrap{
+// 		width: 100%;
+// 		overflow-x: hidden;
+// 		overflow-y: auto;
+// 		.el-cascader-node{
+// 			padding:0 5px;
+// 		}
+// 	}
+// }

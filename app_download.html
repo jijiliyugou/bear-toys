@@ -1,0 +1,213 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>手机APP下载页面：根据终端辨别下载地址</title>
+    <script type="text/javascript">
+        // 获取终端的相关信息
+        var Terminal = {
+            // 辨别移动终端类型
+            platform: function () {
+                var myUserAgent = navigator.userAgent;
+                return {
+                    // 华为
+                    huawei:myUserAgent.search(/Huawei|Honor|H60-|H30-\s([^\s|;]+)/i) > -1,
+                    // vivo 
+                    vivo:myUserAgent.search(/vivo\s([^\s|;]+)/i) > -1,
+                    // 小米
+                    xiaomi:myUserAgent.search(/Mi note|Mi \d+ Build|mi one\s([^\s|;]+)/i) > -1,
+                    // 是否为iPhone或者QQHD浏览器
+                    iPhone: myUserAgent.indexOf('iPhone') > -1,
+                    // 是否iPad
+                    iPad: myUserAgent.indexOf('iPad') > -1
+                };
+            }(),
+            // 辨别移动终端的语言：zh-cn、en-us、ko-kr、ja-jp...
+            language: (navigator.browserLanguage || navigator.language).toLowerCase()
+        }
+        // 根据不同的终端，跳转到不同的地址
+        var theUrl;
+        if (Terminal.platform.huawei) {
+            theUrl = 'https://appgallery.huawei.com/#/app/C102561649';
+        } else if (Terminal.platform.xiaomi) {
+            theUrl = 'http://app.mi.com/details?id=com.honghuang.xiaozhuxiong&ref=search';
+        } else if (Terminal.platform.vivo) {
+            theUrl = 'https://h5coml.vivo.com.cn/h5coml/appdetail_h5/browser_v2/index.html?appId=2908296&resource=301&source=7';
+        } else if (Terminal.platform.iPhone) {
+            theUrl = 'https://apps.apple.com/cn/app/%E5%B0%8F%E7%AB%B9%E7%86%8A/id1524282710';
+        } else if (Terminal.platform.iPad) {
+            theUrl = 'https://apps.apple.com/cn/app/%E5%B0%8F%E7%AB%B9%E7%86%8A/id1524282710';
+        }
+        if (theUrl) location.href = theUrl;
+    </script>
+    <script>
+        (function(doc, win) {
+        var docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            // 750 为设计稿宽度  适配rem
+            recalc = function() {
+            var clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+            clientWidth = clientWidth <= 1080 ? clientWidth : 1080;
+            docEl.style.fontSize = (clientWidth / 750) * 100 + 'px';
+            };
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/template-web.js"></script>
+    <style>
+        @font-face {
+            font-family: 'Muyao-Softbrush';
+            src: url('/static/font/Muyao-Softbrush.ttf'); /* IE9 Compat Modes */
+	        src: url('/static/font/Muyao-Softbrush.ttf') format('embedded-opentype'), /* IE6-IE8 */
+             url('/static/font/Muyao-Softbrush.ttf') format('woff'), /* Modern Browsers */
+             url('/static/font/Muyao-Softbrush.ttf')  format('truetype'), /* Safari, Android, iOS */
+             url('/static/font/Muyao-Softbrush.ttf') format('svg'); /* Legacy iOS */
+        }
+        html, body, div, p, a, img{
+            padding: 0;
+            margin: 0;
+        }
+        a{
+            text-decoration: none;
+        }
+        ul, ol, li {
+            list-style: none;
+        }
+        .warp{
+            width: 10rem;
+            margin: 0 auto;
+            height: 10rem;
+        }
+        .warp>.header{
+            width: 100%;
+            height: 6.813333rem;
+            background: url('/static/downloadBg.png') no-repeat center center;
+            background-size: 100% 100%;
+            position: relative;
+            box-sizing: border-box;
+        }
+        .warp>.header>.myLogo {
+            position: absolute;
+            width: 3.733333rem;
+            height: 3.733333rem;
+            bottom: 0;
+            margin-left: 50%;
+            left: 0;transform: translate(-50%,40%);
+        }
+        .warp>.content>.title {
+            margin: 0;
+            padding: 0;
+            margin-top: 3.786667rem;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .warp>.content>.title> span {
+            font-size: 0.933333rem;
+            font-family: "Muyao-Softbrush";
+            font-weight: 400;
+            color: #505050;
+        }
+        .warp>.content>.buttomBox{
+            position: fixed;
+            left: 50%;
+            bottom: 0.7rem;
+            transform: translate(-50%,0);
+        }
+        .warp>.content>.buttomBox .item{
+            margin: 0;
+            text-align: center;
+            height: 0.44rem;
+            font-size: 0.32rem;
+            font-weight: 400;
+            line-height: 0.44rem;
+            color: #CCCCCC;
+            margin-top: 0.133333rem;
+        }
+        .warp>.content>.buttomBox .myButton{
+            margin: 0 auto;
+            margin-top: 0.266667rem;
+            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 8rem;
+            height: 1.333333rem;
+            color: #fff;
+            background: linear-gradient(180deg, #2E6DFF 0%, #1654E3 100%);
+            box-shadow: 0px 3px 10px rgba(24, 86, 229, 0.3);
+            border:none;
+            font-size: 0.48rem;
+            border-radius: 0.666667rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="warp">
+        <div class="header">
+            <img class="myLogo" src="/static/downloadsLogo.png" alt="">
+        </div>
+        <div class="content">
+            <p class="title">
+                <span>玩具资讯尽在掌中</span>
+            </p>
+            <div class="buttomBox">
+                <div class="dynamicTemplate">
+                    <p class="item versionCode">1.0.1(buil 1)-47.661KB</p>
+                    <p class="item">更新于：2020-12-1 15:30</p>
+                </div>
+                <a class="myButton">Android版本下载</a>
+                <p class="item">深圳小竹熊云科技</p>
+            </div>
+        </div>
+    </div>
+</body>
+<script id="temp" type="text/html">
+    <p class="item versionCode"><span>{{ vesion }}</span>(buil 1)-47.661KB</p>
+    <p class="item">更新于：<span>{{ createdOn.replace(/T/gi, ' ') }}</span></p>
+</script>
+<script>
+    document.getElementsByClassName('myButton')[0].addEventListener('click', ()=> location.href = 'http://img.toysbear.com//package/LittleBearAPP.apk')
+    $(function(){
+        // 发送请求
+        $.ajax({
+            type: "post",
+            url: "https://www.toysbear.com/api/GetToken",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify({
+                companyNum: 'LittleBearWeb',
+                platForm: 'PC'
+            })
+        }).then(res=>{
+            if (res.result.code === 200) {
+                const token = res.result.item
+                $.ajax({
+                    type: "post",
+                    url: "https://www.toysbear.com/api/NewestVesion",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify({
+                        platForm: 'Android'
+                    }),
+                    headers: {
+                        Utoken: token
+                    }
+                }).then(res=>{
+                    if (res.result.code === 200) {
+                        var data = res.result.item
+                        var html = template('temp', data)
+                        $('.dynamicTemplate').html(html)
+                    }
+                })
+            }
+        })
+    })
+</script>
+</html>

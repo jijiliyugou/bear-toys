@@ -1,0 +1,87 @@
+﻿{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "emmet.syntaxProfiles": {
+      "vue-html": "html",
+      "vue": "html"
+    },
+    "editor.wordWrap": "on",
+    "files.associations": {
+      "*.vue": "vue"
+    },
+    "window.zoomLevel": 0,
+    "git.ignoreMissingGitWarning": true,
+    "[vue]": {
+      "editor.defaultFormatter": "octref.vetur"
+    },
+    "editor.tabSize": 2,
+    "workbench.sideBar.location": "left",
+    "workbench.activityBar.visible": true,
+    "[jsonc]": {
+      "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "debug.openExplorerOnEnd": true,
+    "debug.showInStatusBar": "always",
+    "debug.openDebug": "neverOpen",
+    "debug.internalConsoleOptions": "openOnSessionStart",
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": true,
+      "strings": true
+    },
+    "element-helper.version": "2.4",
+    "javascript.updateImportsOnFileMove.enabled": "never",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "editor.renderWhitespace": "none",
+    "editor.renderControlCharacters": false,
+    "javascript.suggest.completeFunctionCalls": false,
+    "eslint.alwaysShowStatus": true,
+    "explorer.autoReveal": false,
+    "editor.renderLineHighlight": "all",
+    "files.defaultLanguage": "javascript",
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "vetur.format.defaultFormatterOptions": {
+      "prettyhtml": {
+        "printWidth": 500,
+        "singleQuote": false,
+        "wrapAttributes": false,
+        "sortAttributes": true
+      }
+    },
+    "[html]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+      "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "editor.suggestSelection": "first",
+    "editor.suggest.maxVisibleSuggestions": 15,
+    "[typescript]": {
+      "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[css]": {
+      "editor.defaultFormatter": "michelemelluso.code-beautifier"
+    },
+    "vsicons.dontShowNewVersionMessage": true,
+    "javascript.implicitProjectConfig.experimentalDecorators": true,
+    "workbench.editor.closeOnFileDelete": true,
+    "workbench.iconTheme": "vscode-icons",
+    "vetur.experimental.templateInterpolationService": true,
+    "vetur.trace.server": "messages",
+    "vetur.validation.template": false,
+    "python.jediEnabled": false,
+    "explorer.sortOrder": "type",
+    "breadcrumbs.enabled": false,
+    "javascript.suggest.autoImports": false,
+    "files.exclude": {
+      "**/node_modules": true,
+      "**/package-lock.json": true
+    }
+  }
+}
